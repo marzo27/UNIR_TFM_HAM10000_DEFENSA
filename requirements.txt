@@ -1,0 +1,12 @@
+# Dependencias del proyecto TFM — HAM10000 EDA
+# Generado para Python 3.10+
+
+pandas>=1.5.0
+numpy>=1.23.0
+matplotlib>=3.6.0
+seaborn>=0.12.0
+scipy>=1.9.0
+openpyxl>=3.0.10
+Pillow>=9.0.0
+python-docx>=0.8.11
+kaggle>=1.5.16

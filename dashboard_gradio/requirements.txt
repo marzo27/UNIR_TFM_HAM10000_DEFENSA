@@ -1,0 +1,5 @@
+# Dependencias específicas del dashboard Gradio (además de requirements.txt del proyecto)
+gradio>=5.0
+pandas>=2.0
+plotly>=5.18
+openpyxl>=3.0.10

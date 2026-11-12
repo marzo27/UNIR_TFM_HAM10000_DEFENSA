@@ -1,0 +1,38 @@
+# ── Datos (demasiado pesados para Git) ───────────────────────────────────────
+data/HAM10000/
+data/*.zip
+data/*.csv
+data/*.jpg
+data/*.png
+
+# ── Entornos virtuales Python ─────────────────────────────────────────────────
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# ── Outputs generados (opcionales — descomentar si no quieres versionar) ──────
+# outputs/figures/
+# outputs/excel/
+# outputs/reports/
+
+# ── Editores y sistemas ───────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Credenciales (NUNCA subir al repositorio) ─────────────────────────────────
+.env
+kaggle.json
+*.key
+*.pem

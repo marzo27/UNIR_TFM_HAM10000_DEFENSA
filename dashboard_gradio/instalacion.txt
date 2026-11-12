@@ -1,0 +1,12 @@
+python -m pip install -r requirements.txt
+python app.py
+
+http://127.0.0.1:7860/
+
+
+
+
+0. EDA
+1. SVM vs SVM Balanceado
+2. DenseNet vs DenseNet Balanceado
+3. SVM Balanceado vs DenseNet Balanceado
