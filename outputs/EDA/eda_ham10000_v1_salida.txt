@@ -1,0 +1,228 @@
+D:\claude\Resultados>python eda_ham10000_v1.py
+
+══════════════════════════════════════════════════════════════
+  BLOQUE 1 — CARGA Y AUDITORÍA INICIAL
+══════════════════════════════════════════════════════════════
+
+  Dimensiones brutas : 10,015 filas × 7 columnas
+  Columnas           : ['lesion_id', 'image_id', 'dx', 'dx_type', 'age', 'sex', 'localization']
+
+  Tipos de datos:
+lesion_id        object
+image_id         object
+dx               object
+dx_type          object
+age             float64
+sex              object
+localization     object
+
+  Primeras 5 filas:
+     lesion_id      image_id   dx dx_type   age   sex localization
+0  HAM_0000118  ISIC_0027419  bkl   histo  80.0  male        scalp
+1  HAM_0000118  ISIC_0025030  bkl   histo  80.0  male        scalp
+2  HAM_0002730  ISIC_0026769  bkl   histo  80.0  male        scalp
+3  HAM_0002730  ISIC_0025661  bkl   histo  80.0  male        scalp
+4  HAM_0001466  ISIC_0031633  bkl   histo  75.0  male          ear
+
+  Nulos por columna (bruto):
+lesion_id        0
+image_id         0
+dx               0
+dx_type          0
+age             57
+sex              0
+localization     0
+
+  Duplicados exactos (todas las columnas): 0
+  Lesiones únicas (lesion_id) : 7,470
+  Imágenes únicas (image_id)  : 10,015
+  Lesiones con >1 imagen      : 1,956
+
+  Valores únicos por columna categórica:
+    dx             : ['akiec', 'bcc', 'bkl', 'df', 'mel', 'nv', 'vasc']
+    dx_type        : ['confocal', 'consensus', 'follow_up', 'histo']
+    sex            : ['female', 'male', 'unknown']
+    localization   : ['abdomen', 'acral', 'back', 'chest', 'ear', 'face', 'foot', 'genital', 'hand', 'lower extremity', 'neck', 'scalp', 'trunk', 'unknown', 'upper extremity']
+
+══════════════════════════════════════════════════════════════
+  BLOQUE 2 — LIMPIEZA
+══════════════════════════════════════════════════════════════
+
+  Nulos tras estandarización:
+lesion_id         0
+image_id          0
+dx                0
+dx_type           0
+age              57
+sex              57
+localization    234
+
+  Edades negativas    : 0
+  Edades > 110 años   : 0
+
+══════════════════════════════════════════════════════════════
+  BLOQUE 3 — IMPUTACIÓN DE EDAD (mediana por clase dx)
+══════════════════════════════════════════════════════════════
+
+  Nulos en 'age' antes de imputar : 57
+
+  Mediana de edad por clase dx:
+    nv       (Nevus melanocítico            ): 45.0 años
+    mel      (Melanoma                      ): 60.0 años
+    bkl      (Queratosis benigna            ): 65.0 años
+    bcc      (Carcinoma basocelular         ): 70.0 años
+    akiec    (Queratosis actínica           ): 70.0 años
+    vasc     (Lesión vascular               ): 55.0 años
+    df       (Dermatofibroma                ): 50.0 años
+
+  Nulos en 'age' después de imputar: 0
+
+  Nulos finales por columna (sex, localization NO imputadas):
+lesion_id         0
+image_id          0
+dx                0
+dx_type           0
+age               0
+sex              57
+localization    234
+
+══════════════════════════════════════════════════════════════
+  BLOQUE 4 — VARIABLES AUXILIARES
+══════════════════════════════════════════════════════════════
+  Distribución malignidad:
+malignidad
+Benigno    8061
+Maligno    1954
+
+  Distribución grupos de edad:
+age_group
+<20       373
+20–35    1464
+35–50    3516
+50–65    2555
+65–80    1778
+>80       290
+
+══════════════════════════════════════════════════════════════
+  BLOQUE 5 — DESCRIPTIVA UNIVARIANTE
+══════════════════════════════════════════════════════════════
+
+  Edad (describe completo):
+count    10015.00
+mean        51.85
+std         16.93
+min          0.00
+25%         40.00
+50%         50.00
+75%         65.00
+max         85.00
+
+  Distribución dx:
+dx
+nv       6705
+mel      1113
+bkl      1099
+bcc       514
+akiec     327
+vasc      142
+df        115
+
+  Distribución dx_type:
+dx_type
+histo        5340
+follow_up    3704
+consensus     902
+confocal       69
+
+  Distribución sex:
+sex
+male      5406
+female    4552
+
+  Distribución localization (top 10):
+localization
+back               2192
+lower extremity    2077
+trunk              1404
+upper extremity    1118
+abdomen            1022
+face                745
+chest               407
+foot                319
+neck                168
+scalp               128
+
+══════════════════════════════════════════════════════════════
+  BLOQUE 6 — CORRELACIONES
+══════════════════════════════════════════════════════════════
+
+  Cramér's V entre variables categóricas:
+                 dx  dx_type    sex  localization  malignidad  age_group
+dx            1.000    0.390  0.092         0.214       1.000      0.223
+dx_type       0.390    1.000  0.056         0.306       0.460      0.212
+sex           0.092    0.056  1.000         0.145       0.084      0.184
+localization  0.214    0.306  0.145         1.000       0.278      0.125
+malignidad    1.000    0.460  0.084         0.278       1.000      0.345
+age_group     0.223    0.212  0.184         0.125       0.345      1.000
+
+  Kruskal-Wallis (edad ~ dx):  H = 2295.31, p = 0.0000e+00
+  Point-Biserial (edad ~ malignidad):  r = 0.3323, p = 9.0830e-257
+
+══════════════════════════════════════════════════════════════
+  BLOQUE 7 — GENERACIÓN DE FIGURAS
+══════════════════════════════════════════════════════════════
+  [OK] Figura guardada: fig01_distribucion_clases.png
+  [OK] Figura guardada: fig02_distribucion_edad.png
+  [OK] Figura guardada: fig03_distribucion_sexo.png
+  [OK] Figura guardada: fig04_localizacion.png
+  [OK] Figura guardada: fig05_dx_type.png
+  [OK] Figura guardada: fig06_malignidad_edad.png
+  [OK] Figura guardada: fig07_grupos_edad_dx.png
+  [OK] Figura guardada: fig08_correlacion_cramers_v.png
+  [OK] Figura guardada: fig09_imagenes_por_lesion.png
+  [OK] Figura guardada: fig10_sexo_localizacion_apilado.png
+
+══════════════════════════════════════════════════════════════
+  BLOQUE 8 — EXPORTACIÓN A EXCEL
+══════════════════════════════════════════════════════════════
+
+  Excel guardado en: D:\claude\Resultados\eda_resultados_HAM10000.xlsx
+  Hojas generadas   : 12
+
+══════════════════════════════════════════════════════════════
+  RESUMEN FINAL DEL EDA
+══════════════════════════════════════════════════════════════
+  Total imágenes analizadas : 10,015
+  Lesiones únicas           : 7,470
+  Variables tras limpieza   : 10
+  Nulos restantes (edad)    : 0
+  Nulos restantes (sex)     : 57
+  Nulos restantes (local.)  : 234
+
+  Clase         N       %  Malignidad
+  ----------------------------------------
+  nv        6,705   66.9%  Benigno
+  mel       1,113   11.1%  Maligno
+  bkl       1,099   11.0%  Benigno
+  bcc         514    5.1%  Maligno
+  akiec       327    3.3%  Maligno
+  vasc        142    1.4%  Benigno
+  df          115    1.1%  Benigno
+
+  Malignas : 1,954 (19.5%)
+  Benignas : 8,061 (80.5%)
+
+  Cramér's V (dx ~ malignidad)  : 1.000
+  Cramér's V (dx ~ dx_type)     : 0.390
+  Cramér's V (dx ~ localizacion): 0.214
+  Cramér's V (dx ~ sex)         : 0.092
+  Cramér's V (dx ~ age_group)   : 0.223
+  Kruskal-Wallis (edad ~ dx)    : H=2295.31, p=0.00e+00
+
+  Figuras generadas : 10  →  D:\claude\Resultados
+  Excel generado    : eda_resultados_HAM10000.xlsx
+══════════════════════════════════════════════════════════════
+  EDA completado sin errores.
+══════════════════════════════════════════════════════════════
+
+D:\claude\Resultados>

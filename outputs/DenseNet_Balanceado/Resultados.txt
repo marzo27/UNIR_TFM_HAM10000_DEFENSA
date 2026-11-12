@@ -1,0 +1,224 @@
+PS C:\Chris\TFM>  & 'C:\Users\chris\anaconda3_2\envs\tfm_salud\python.exe' 'c:\Users\chris\.vscode\extensions\ms-python.debugpy-2026.6.0-win32-x64\bundled\libs\debugpy\launcher' '63429' '--' 'C:\Chris\TFM\Comparacion\densenet201_original_balanceado_v2.py' 
+Imágenes indexadas en disco: 10015
+============================================================
+CONFIGURACIÓN DE DATOS
+============================================================
+Clases (7)   : ['akiec', 'bcc', 'bkl', 'df', 'mel', 'nv', 'vasc']
+Total muestras       : 3908
+Train / Val          : 3126 / 782
+Distribución original: {'nv': 1676, 'mel': 1113, 'bcc': 514, 'akiec': 327, 'bkl': 225, 'vasc': 30, 'df': 23}
+Distribución train   : {'nv': 1341, 'mel': 890, 'bcc': 411, 'akiec': 262, 'bkl': 180, 'vasc': 24, 'df': 18}
+Distribución val     : {'nv': 335, 'mel': 223, 'bcc': 103, 'akiec': 65, 'bkl': 45, 'vasc': 6, 'df': 5}
+Tamaño de imagen     : 224x224 px RGB
+Batch size           : 32
+============================================================
+Dispositivo utilizado: cuda
+Parámetros entrenables: 18,110,217
+=== PESOS DE BALANCEO SINCRONIZADOS ===
+Enfermedad: akiec  | Cantidad: 262   | Peso: 1.7045
+Enfermedad: bcc    | Cantidad: 411   | Peso: 1.0865
+Enfermedad: bkl    | Cantidad: 180   | Peso: 2.4810
+Enfermedad: df     | Cantidad: 18    | Peso: 24.8095
+Enfermedad: mel    | Cantidad: 890   | Peso: 0.5018
+Enfermedad: nv     | Cantidad: 1341  | Peso: 0.3330
+Enfermedad: vasc   | Cantidad: 24    | Peso: 18.6071
+
+
+Iniciando entrenamiento jerárquico por 30 épocas...
+
+Época [1/30] (111.1s)
+  Train -> Loss: 0.8389 | Accuracy (7 Clases): 62.06%
+  Val   -> Loss: 0.5801 | Accuracy (7 Clases): 72.12%
+--------------------------------------------------
+Época [2/30] (118.0s)
+  Train -> Loss: 0.5433 | Accuracy (7 Clases): 73.45%
+  Val   -> Loss: 0.5247 | Accuracy (7 Clases): 78.90%
+--------------------------------------------------
+Época [3/30] (121.6s)
+  Train -> Loss: 0.4268 | Accuracy (7 Clases): 78.06%
+  Val   -> Loss: 0.5052 | Accuracy (7 Clases): 79.28%
+--------------------------------------------------
+Época [4/30] (113.1s)
+  Train -> Loss: 0.3626 | Accuracy (7 Clases): 82.18%
+  Val   -> Loss: 0.5080 | Accuracy (7 Clases): 80.18%
+--------------------------------------------------
+Época [5/30] (105.5s)
+  Train -> Loss: 0.2868 | Accuracy (7 Clases): 85.12%
+  Val   -> Loss: 0.4210 | Accuracy (7 Clases): 81.97%
+--------------------------------------------------
+Época [6/30] (107.0s)
+  Train -> Loss: 0.2391 | Accuracy (7 Clases): 88.04%
+  Val   -> Loss: 0.4399 | Accuracy (7 Clases): 81.97%
+--------------------------------------------------
+Época [7/30] (103.9s)
+  Train -> Loss: 0.1863 | Accuracy (7 Clases): 90.63%
+  Val   -> Loss: 0.4752 | Accuracy (7 Clases): 81.59%
+--------------------------------------------------
+Época [8/30] (105.2s)
+  Train -> Loss: 0.1573 | Accuracy (7 Clases): 92.00%
+  Val   -> Loss: 0.4936 | Accuracy (7 Clases): 83.25%
+--------------------------------------------------
+Época [9/30] (104.2s)
+  Train -> Loss: 0.1582 | Accuracy (7 Clases): 91.87%
+  Val   -> Loss: 0.4603 | Accuracy (7 Clases): 81.97%
+--------------------------------------------------
+Época [10/30] (104.3s)
+  Train -> Loss: 0.0932 | Accuracy (7 Clases): 95.84%
+  Val   -> Loss: 0.4207 | Accuracy (7 Clases): 85.55%
+--------------------------------------------------
+Época [11/30] (121.5s)
+  Train -> Loss: 0.0765 | Accuracy (7 Clases): 96.00%
+  Val   -> Loss: 0.4113 | Accuracy (7 Clases): 86.45%
+--------------------------------------------------
+Época [12/30] (194.6s)
+  Train -> Loss: 0.0696 | Accuracy (7 Clases): 97.06%
+  Val   -> Loss: 0.4319 | Accuracy (7 Clases): 86.32%
+--------------------------------------------------
+Época [13/30] (184.1s)
+  Train -> Loss: 0.0576 | Accuracy (7 Clases): 97.70%
+  Val   -> Loss: 0.4395 | Accuracy (7 Clases): 87.85%
+--------------------------------------------------
+Época [14/30] (137.4s)
+  Train -> Loss: 0.0641 | Accuracy (7 Clases): 97.60%
+  Val   -> Loss: 0.4394 | Accuracy (7 Clases): 87.08%
+--------------------------------------------------
+Época [15/30] (149.0s)
+  Train -> Loss: 0.0515 | Accuracy (7 Clases): 97.98%
+  Val   -> Loss: 0.4405 | Accuracy (7 Clases): 87.47%
+--------------------------------------------------
+Época [16/30] (183.1s)
+  Train -> Loss: 0.0513 | Accuracy (7 Clases): 98.08%
+  Val   -> Loss: 0.4407 | Accuracy (7 Clases): 87.85%
+--------------------------------------------------
+Época [17/30] (151.1s)
+  Train -> Loss: 0.0470 | Accuracy (7 Clases): 98.08%
+  Val   -> Loss: 0.4422 | Accuracy (7 Clases): 87.21%
+--------------------------------------------------
+Época [18/30] (155.4s)
+  Train -> Loss: 0.0418 | Accuracy (7 Clases): 98.24%
+  Val   -> Loss: 0.4308 | Accuracy (7 Clases): 87.60%
+--------------------------------------------------
+Época [19/30] (127.0s)
+  Train -> Loss: 0.0418 | Accuracy (7 Clases): 98.62%
+  Val   -> Loss: 0.4391 | Accuracy (7 Clases): 87.21%
+--------------------------------------------------
+Época [20/30] (118.3s)
+  Train -> Loss: 0.0467 | Accuracy (7 Clases): 98.14%
+  Val   -> Loss: 0.4405 | Accuracy (7 Clases): 87.21%
+--------------------------------------------------
+Época [21/30] (106.4s)
+  Train -> Loss: 0.0444 | Accuracy (7 Clases): 98.27%
+  Val   -> Loss: 0.4337 | Accuracy (7 Clases): 86.96%
+--------------------------------------------------
+Época [22/30] (105.8s)
+  Train -> Loss: 0.0429 | Accuracy (7 Clases): 98.69%
+  Val   -> Loss: 0.4381 | Accuracy (7 Clases): 87.47%
+--------------------------------------------------
+Época [23/30] (105.6s)
+  Train -> Loss: 0.0469 | Accuracy (7 Clases): 98.37%
+  Val   -> Loss: 0.4360 | Accuracy (7 Clases): 86.96%
+--------------------------------------------------
+Época [24/30] (106.2s)
+  Train -> Loss: 0.0536 | Accuracy (7 Clases): 97.92%
+  Val   -> Loss: 0.4509 | Accuracy (7 Clases): 87.72%
+--------------------------------------------------
+Época [25/30] (105.3s)
+  Train -> Loss: 0.0433 | Accuracy (7 Clases): 98.24%
+  Val   -> Loss: 0.4344 | Accuracy (7 Clases): 87.21%
+--------------------------------------------------
+Época [26/30] (107.8s)
+  Train -> Loss: 0.0434 | Accuracy (7 Clases): 98.50%
+  Val   -> Loss: 0.4432 | Accuracy (7 Clases): 87.60%
+--------------------------------------------------
+Época [27/30] (109.0s)
+  Train -> Loss: 0.0399 | Accuracy (7 Clases): 98.43%
+  Val   -> Loss: 0.4340 | Accuracy (7 Clases): 87.34%
+--------------------------------------------------
+Época [28/30] (115.3s)
+  Train -> Loss: 0.0473 | Accuracy (7 Clases): 98.05%
+  Val   -> Loss: 0.4385 | Accuracy (7 Clases): 87.34%
+--------------------------------------------------
+Época [29/30] (155.0s)
+  Train -> Loss: 0.0451 | Accuracy (7 Clases): 98.02%
+  Val   -> Loss: 0.4253 | Accuracy (7 Clases): 87.60%
+--------------------------------------------------
+Época [30/30] (105.8s)
+  Train -> Loss: 0.0458 | Accuracy (7 Clases): 98.14%
+  Val   -> Loss: 0.4461 | Accuracy (7 Clases): 86.96%
+--------------------------------------------------
+Entrenamiento finalizado: 30 épocas en 62.3 min (3737.6 s)
+
+============================================================
+CABEZA B — DIAGNÓSTICO ESPECÍFICO (7 clases)
+============================================================
+              precision    recall  f1-score   support
+
+       akiec       0.86      0.68      0.76        65
+         bcc       0.88      0.92      0.90       103
+         bkl       0.64      0.64      0.64        45
+          df       0.75      0.60      0.67         5
+         mel       0.84      0.86      0.85       223
+          nv       0.92      0.93      0.92       335
+        vasc       0.83      0.83      0.83         6
+
+    accuracy                           0.87       782
+   macro avg       0.82      0.78      0.80       782
+weighted avg       0.87      0.87      0.87       782
+
+Accuracy             : 0.8696
+Balanced Accuracy    : 0.7813
+Recall Macro         : 0.7813
+Recall Weighted      : 0.8696
+Precision Macro      : 0.8186
+Precision Weighted   : 0.8691
+F1 Macro             : 0.7971
+F1 Weighted          : 0.8682
+F1 Micro             : 0.8696
+AUC Macro (OvR)      : 0.9788
+AUC Weighted (OvR)   : 0.9737
+Cohen's Kappa        : 0.8146
+MCC                  : 0.8149
+============================================================
+
+============================================================
+CABEZA A — TRIAJE BINARIO (Benigno vs. Maligno)
+============================================================
+              precision    recall  f1-score   support
+
+     benigno       0.90      0.93      0.92       391
+     maligno       0.93      0.90      0.91       391
+
+    accuracy                           0.91       782
+   macro avg       0.91      0.91      0.91       782
+weighted avg       0.91      0.91      0.91       782
+
+Sensibilidad (Recall clase Maligno)  : 0.9003
+Especificidad (Recall clase Benigno) : 0.9284
+Accuracy                             : 0.9143
+Balanced Accuracy                    : 0.9143
+Precision (clase Maligno)            : 0.9263
+F1 Macro                             : 0.9143
+F1 Weighted                          : 0.9143
+AUC-ROC                              : 0.9650
+Average Precision                    : 0.9600
+Cohen's Kappa                        : 0.8286
+MCC                                  : 0.8290
+============================================================
+
+============================================================
+TIEMPOS
+============================================================
+Entrenamiento total    : 3737.6 s (62.3 min)
+Inferencia total (val) : 10.4403 s
+Inferencia por imagen  : 13.3507 ms
+============================================================
+
+============================================================
+RESUMEN FINAL (Recall/Sensibilidad como criterio principal)
+============================================================
+Cabeza A (binario)  -> Sensibilidad: 0.9003 | Especificidad: 0.9284 | Accuracy: 0.9143 | AUC: 0.9650
+Cabeza B (7 clases) -> Recall Macro: 0.7813 | Recall Weighted: 0.8696 | Accuracy: 0.8696 | F1 Macro: 0.7971 | AUC Macro: 0.9788
+Entrenamiento: 62.3 min | Inferencia/imagen: 13.351 ms
+Métricas exportadas a: resultados_densenet\metricas_densenet201.json
+============================================================
+PS C:\Chris\TFM> 

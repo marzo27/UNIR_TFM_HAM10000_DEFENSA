@@ -1,0 +1,88 @@
+=================================================================
+  SVM CLASSIFIER — HAM10000 BALANCEADO  |  Binario benigno/maligno
+  Ejecución: 2026-06-19 10:58:42
+=================================================================
+
+[1/8] Cargando dataset balanceado y localizando carpetas de imágenes...
+  ✓ Carpetas : ['HAM10000_images_part_1', 'HAM10000_images_part_2']
+  ✓ Imágenes : 10015 archivos .jpg
+  ✓ Metadata : D:\TFM\HAM10000\HAM10000_metadata_balanceo.csv
+  ✓ Filas    : 3908  |  columnas: ['lesion_id', 'image_id', 'dx', 'dx_type', 'age', 'sex', 'localization']
+  ✓ Distribución binaria: {'Maligno': 1954, 'Benigno': 1954}
+
+[2/8] Cargando imágenes a 64×64 px (RGB)...
+  Cargando: 100%|████████████████| 3908/3908 [00:18<00:00, 206.50it/s]
+  ✓ X shape  : (3908, 12288)  (192.1 MB)
+  ✓ Clases   : ['Benigno', 'Maligno']
+  ✓ Dist.    : {'Benigno': np.int64(1954), 'Maligno': np.int64(1954)}
+  ✓ Tiempo   : 19.0 s
+
+[3/8] Dividiendo datos por lesión (train 80% / test 20%, GroupShuffleSplit)...
+  ✓ Train : 3119 muestras  |  2498 lesiones únicas
+  ✓ Test  : 789  muestras  |  625 lesiones únicas
+  ✓ Distribución train: {'Benigno': np.int64(1573), 'Maligno': np.int64(1546)}
+  ✓ Distribución test : {'Benigno': np.int64(381), 'Maligno': np.int64(408)}
+  ✓ Verificado: ninguna lesión aparece en ambos conjuntos
+
+[4/8] Escalando (StandardScaler) + PCA (95% varianza)...
+  ✓ Features orig  : 12288
+  ✓ Componentes PCA: 104  (reducción 99.2%)
+  ✓ Varianza total : 95.01%
+
+[5/8] Entrenando SVM con kernel RBF (puede tardar varios minutos)...
+  ✓ Entrenamiento completado en 1.3 s
+  ✓ Vectores de soporte: 1758 total  {'Benigno': np.int32(803), 'Maligno': np.int32(955)}
+  ✓ Modelo guardado en: D:\TFM\Resultados\svm_model_balanceado.joblib
+
+[6/8] Evaluando modelo en test set...
+  ✓ Accuracy         : 0.7985
+  ✓ Balanced Accuracy: 0.7939
+  ✓ F1 Macro         : 0.7930
+  ✓ F1 Weighted      : 0.7942
+  ✓ AUC Macro (OvR)  : 0.8643
+  ✓ Cohen's Kappa    : 0.5929
+  ✓ MCC              : 0.6138
+
+[7/8] Validación cruzada 5-fold (puede tardar)...
+  ✓ CV Accuracy: 0.7870 ± 0.0147
+  ✓ CV F1 Macro: 0.7825  ± 0.0140
+
+[8/8] Generando gráficos y Excel...
+  ✓ 8 gráficos guardados en: D:\TFM\Resultados\plots_svm_balanceado
+  ✓ Excel guardado: D:\TFM\Resultados\metricas_balanceado.xlsx
+  ✓ JSON baseline : D:\TFM\Resultados\metricas_balanceado.json
+
+=================================================================
+  RESULTADOS FINALES
+=================================================================
+  Accuracy          : 0.7985
+  Balanced Accuracy : 0.7939
+  F1 Macro          : 0.7930
+  F1 Weighted       : 0.7942
+  AUC Macro (OvR)   : 0.8643
+  Cohen's Kappa     : 0.5929
+  MCC               : 0.6138
+  CV Accuracy       : 0.7870 ± 0.0147
+  CV F1 Macro       : 0.7825 ± 0.0140
+  T. entrenamiento  : 1.3 s
+  T. inferencia/img : 0.249 ms
+=================================================================
+
+ARCHIVOS GENERADOS:
+  📊  D:\TFM\Resultados\metricas_balanceado.xlsx
+  🤖  D:\TFM\Resultados\svm_model_balanceado.joblib
+  📋  D:\TFM\Resultados\metricas_balanceado.json
+  📈  D:\TFM\Resultados\plots_svm_balanceado/  (8 gráficos PNG)
+
+REPORTE POR CLASE:
+              precision    recall  f1-score   support
+
+     Benigno       0.90      0.66      0.76       381
+     Maligno       0.74      0.93      0.83       408
+
+    accuracy                           0.80       789
+   macro avg       0.82      0.79      0.79       789
+weighted avg       0.82      0.80      0.79       789
+
+✅ Pipeline completado.
+PS D:\TFM\UNIR_TFM_HAM10000\src> 

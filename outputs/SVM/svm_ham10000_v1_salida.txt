@@ -1,0 +1,94 @@
+PS D:\TFM\UNIR_TFM_HAM10000\src>  & 'C:\app\Python\Python310\python.exe' 'c:\Users\amgb250717\.vscode\extensions\ms-python.debugpy-2026.6.0-win32-x64\bundled\libs\debugpy\launcher' '60597' '--' 'D:\TFM\UNIR_TFM_HAM10000\src\svm_ham10000_v1.py' 
+=================================================================
+  SVM CLASSIFIER — HAM10000  |  Línea base de métricas
+  Ejecución: 2026-06-12 18:30:31
+=================================================================
+
+[1/9] Detectando estructura del dataset...
+  ✓ Metadata : D:\TFM\HAM10000\HAM10000_metadata.csv
+  ✓ Carpetas : ['HAM10000_images_part_1', 'HAM10000_images_part_2']
+  ✓ Imágenes : 10015 archivos .jpg
+  ✓ Metadata : 10015 filas  |  columnas: ['lesion_id', 'image_id', 'dx', 'dx_type', 'age', 'sex', 'localization']
+
+[2/9] Cargando imágenes a 64×64 px (RGB)...
+  Cargando: 100%|██████████████| 10015/10015 [00:56<00:00, 178.81it/s]
+  ✓ X shape  : (10015, 12288)  (492.3 MB)
+  ✓ Clases   : ['akiec', 'bcc', 'bkl', 'df', 'mel', 'nv', 'vasc']
+  ✓ Dist.    : {'akiec': np.int64(327), 'bcc': np.int64(514), 'bkl': np.int64(1099), 'df': np.int64(115), 'mel': np.int64(1113), 'nv': np.int64(6705), 'vasc': np.int64(142)}
+  ✓ Tiempo   : 56.3 s
+
+[3/9] Dividiendo datos (train 80% / test 20%)...
+  ✓ Train : 8012 muestras
+  ✓ Test  : 2003  muestras
+
+[4/9] Escalando (StandardScaler) + PCA (95% varianza)...
+  ✓ Features orig  : 12288
+  ✓ Componentes PCA: 84  (reducción 99.3%)
+  ✓ Varianza total : 95.03%
+
+[5/9] Aplicando SMOTE (solo en train)...
+  ✓ Muestras post-SMOTE: 37548
+  ✓ Distribución      : {'akiec': np.int64(5364), 'bcc': np.int64(5364), 'bkl': np.int64(5364), 'df': np.int64(5364), 'mel': np.int64(5364), 'nv': np.int64(5364), 'vasc': np.int64(5364)}
+
+[6/9] Entrenando SVM con kernel RBF (puede tardar varios minutos)...
+  ✓ Entrenamiento completado en 166.7 s
+  ✓ Vectores de soporte: 20944 total  {'akiec': np.int32(3127), 'bcc': np.int32(3423), 'bkl': np.int32(4001), 'df': np.int32(2254), 'mel': np.int32(3536), 'nv': np.int32(3047), 'vasc': np.int32(1556)}
+  ✓ Modelo guardado en: D:\TFM\HAM10000\svm_model.joblib
+
+[7/9] Evaluando modelo en test set...
+  ✓ Accuracy         : 0.6815
+  ✓ Balanced Accuracy: 0.5167
+  ✓ F1 Macro         : 0.4834
+  ✓ F1 Weighted      : 0.6990
+  ✓ AUC Macro (OvR)  : 0.8776
+  ✓ Cohen's Kappa    : 0.4496
+  ✓ MCC              : 0.4561
+
+[8/9] Validación cruzada 5-fold (puede tardar)...
+  ✓ CV Accuracy: 0.5778 ± 0.0067
+  ✓ CV F1 Macro: 0.4006  ± 0.0107
+
+[9/9] Generando gráficos y Excel...
+  ✓ 8 gráficos guardados en: D:\TFM\HAM10000\plots_svm
+  ✓ Excel guardado: D:\TFM\HAM10000\metricas.xlsx
+  ✓ JSON baseline : D:\TFM\HAM10000\metricas_baseline.json
+
+=================================================================
+  RESULTADOS FINALES
+=================================================================
+  Accuracy          : 0.6815
+  Balanced Accuracy : 0.5167
+  F1 Macro          : 0.4834
+  F1 Weighted       : 0.6990
+  AUC Macro (OvR)   : 0.8776
+  Cohen's Kappa     : 0.4496
+  MCC               : 0.4561
+  CV Accuracy       : 0.5778 ± 0.0067
+  CV F1 Macro       : 0.4006 ± 0.0107
+  T. entrenamiento  : 166.7 s
+  T. inferencia/img : 3.360 ms
+=================================================================
+
+ARCHIVOS GENERADOS:
+  📊  D:\TFM\HAM10000\metricas.xlsx
+  🤖  D:\TFM\HAM10000\svm_model.joblib
+  📋  D:\TFM\HAM10000\metricas_baseline.json
+  📈  D:\TFM\HAM10000\plots_svm/  (8 gráficos PNG)
+
+REPORTE POR CLASE:
+              precision    recall  f1-score   support
+
+       akiec       0.42      0.66      0.51        65
+         bcc       0.45      0.55      0.50       103
+         bkl       0.45      0.55      0.49       220
+          df       0.29      0.26      0.27        23
+         mel       0.34      0.48      0.39       223
+          nv       0.89      0.76      0.82      1341
+        vasc       0.43      0.36      0.39        28
+
+    accuracy                           0.68      2003
+   macro avg       0.47      0.52      0.48      2003
+weighted avg       0.73      0.68      0.70      2003
+
+✅ Pipeline completado.
+PS D:\TFM\UNIR_TFM_HAM10000\src> 
