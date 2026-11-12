@@ -1,0 +1,49 @@
+{
+  "arquitectura": "DenseNetMultitarea (DenseNet201 + cabeza_binaria + cabeza_especifica)",
+  "archivo_pesos": "densenet201_multitarea.pth",
+  "img_size": [
+    224,
+    224
+  ],
+  "normalizacion": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "clases": [
+    "akiec",
+    "bcc",
+    "bkl",
+    "df",
+    "mel",
+    "nv",
+    "vasc"
+  ],
+  "mapeo_clases": {
+    "akiec": 0,
+    "bcc": 1,
+    "bkl": 2,
+    "df": 3,
+    "mel": 4,
+    "nv": 5,
+    "vasc": 6
+  },
+  "clases_malignas": [
+    "akiec",
+    "bcc",
+    "mel"
+  ],
+  "cabeza_a_etiquetas": [
+    "benigno",
+    "maligno"
+  ],
+  "epochs": 30,
+  "timestamp": "2026-10-29 17:56:32"
+}
