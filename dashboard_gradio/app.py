@@ -464,4 +464,4 @@ if __name__ == "__main__":
     # esté fuera del directorio de trabajo o del temporal del sistema. Hay
     # que autorizar explícitamente esas dos carpetas para que el visor de
     # imágenes del Explorador de datos funcione.
-    demo.launch(allowed_paths=[str(d) for d in IMAGENES_DIRS])
+    demo.launch(allowed_paths=[str(d) for d in IMAGENES_DIRS], share=True)
